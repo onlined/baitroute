@@ -46,7 +46,7 @@ class BaitRouteMiddleware:
             )
 
             # Add custom headers if specified
-            if rule.get('headers'):
+            if 'headers' in rule:
                 for key, value in rule['headers'].items():
                     response[key] = value
 

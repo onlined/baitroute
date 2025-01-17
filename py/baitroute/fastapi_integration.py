@@ -5,7 +5,7 @@ from . import BaitRoute
 
 def register_with_fastapi(app: FastAPI, baitroute: BaitRoute) -> None:
     """Register bait endpoints with a FastAPI application.
-    
+
     Args:
         app: FastAPI application instance
         baitroute: BaitRoute instance containing the rules
@@ -37,7 +37,7 @@ def register_with_fastapi(app: FastAPI, baitroute: BaitRoute) -> None:
 
             # Return response according to rule
             headers = {'Content-Type': rule.get('content-type', 'text/plain')}
-            if rule.get('headers'):
+            if 'headers' in rule:
                 headers.update(rule['headers'])
 
             return Response(

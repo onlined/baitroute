@@ -45,7 +45,7 @@ baitroute = BaitRoute("../../rules")
 #           })
 #       )
 def handle_bait_hit(alert: Alert):
-    print(f"🚨 Bait hit detected!")
+    print("🚨 Bait hit detected!")
     print(f"Path: {alert.path}")
     print(f"Method: {alert.method}")
     print(f"Remote Address: {alert.remote_addr}")
@@ -65,4 +65,4 @@ async def home():
     return {"message": "Welcome to the real application!"}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8087) 
+    uvicorn.run(app, host="0.0.0.0", port=8087)

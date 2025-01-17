@@ -1,7 +1,7 @@
 import logging
 import os
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List, Optional, Union
+from typing import Any, Callable, Dict, List, Optional
 import yaml
 
 logger = logging.getLogger(__name__)
@@ -18,7 +18,7 @@ AlertHandler = Callable[[Alert], None]
 
 class BaitRoute:
     """Initialize the BaitRoute with rules from the specified directory.
-    
+
     Args:
         rules_dir (str): Path to directory containing YAML rule files
         selected_rules (Optional[List[str]]): List of rule names to load. If None, all rules are loaded.
@@ -36,7 +36,7 @@ class BaitRoute:
  '._.'.'      '--''-'._   '--..--'    | _ ) __ _(_) |_| _ \___ _  _| |_ ___
   .'.'___    /'---'. / ,-'            | _ \/ _  | |  _|   / _ \ || |  _/ -_)
 _<__.-._))../ /'----'/.'_____:'.      |___/\__,_|_|\__|_|_\___/\_,_|\__\___|
-:            \ ]              :  '.     
+:            \ ]              :  '.
 :  Acme       \\              :    '.  A web honeypot library to create decoy
 :              \\__           :    .'  endpoints to detect and mislead attackers
 :_______________|__]__________:...'
@@ -48,8 +48,8 @@ _<__.-._))../ /'----'/.'_____:'.      |___/\__,_|_|\__|_|_\___/\_,_|\__\___|
 
     def _load_rules(self) -> None:
         """Load rules from YAML files in the rules directory."""
-        logger.info(f"Initializing baitroute with rules directory: {self.rules_dir}")
-        
+        logger.info("Initializing baitroute with rules directory: %s", self.rules_dir)
+
         if not os.path.exists(self.rules_dir):
             raise ValueError(f"Rules directory does not exist: {self.rules_dir}")
 
@@ -82,7 +82,7 @@ _<__.-._))../ /'----'/.'_____:'.      |___/\__,_|_|\__|_|_\___/\_,_|\__\___|
 
     def on_bait_hit(self, handler: AlertHandler) -> None:
         """Set the handler for bait endpoint hits.
-        
+
         Args:
             handler: Callback function that takes an Alert object
         """
@@ -97,4 +97,4 @@ _<__.-._))../ /'----'/.'_____:'.      |___/\__,_|_|\__|_|_\___/\_,_|\__\___|
             remote_addr=remote_addr,
             headers=headers,
             body=body
-        ) 
+        )

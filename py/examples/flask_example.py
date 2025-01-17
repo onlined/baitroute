@@ -44,7 +44,7 @@ baitroute = BaitRoute("../../rules")
 #           })
 #       )
 def handle_bait_hit(alert: Alert):
-    print(f"🚨 Bait endpoint hit detected!")
+    print("🚨 Bait endpoint hit detected!")
     print(f"Path: {alert.path}")
     print(f"Method: {alert.method}")
     print(f"Remote Address: {alert.remote_addr}")
@@ -64,4 +64,4 @@ def home():
     return 'Welcome to the real application!'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8087) 
+    app.run(host='0.0.0.0', port=8087)

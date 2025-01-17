@@ -3,7 +3,7 @@ from . import BaitRoute
 
 def register_with_flask(app: Flask, baitroute: BaitRoute) -> None:
     """Register bait endpoints with a Flask application.
-    
+
     Args:
         app: Flask application instance
         baitroute: BaitRoute instance containing the rules
@@ -31,7 +31,7 @@ def register_with_flask(app: Flask, baitroute: BaitRoute) -> None:
             ))
 
             # Add custom headers if specified
-            if rule.get('headers'):
+            if 'headers' in rule:
                 for key, value in rule['headers'].items():
                     response.headers[key] = value
 

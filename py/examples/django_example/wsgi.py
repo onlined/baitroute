@@ -6,7 +6,7 @@ from django.http import HttpRequest
 
 # Set up alert handler
 def handle_bait_hit(alert: Alert, request: HttpRequest = None):
-    print(f"🚨 Bait hit detected!")
+    print("🚨 Bait hit detected!")
     print(f"Path: {alert.path}")
     print(f"Method: {alert.method}")
     print(f"Remote Address: {alert.remote_addr}")
@@ -21,4 +21,4 @@ BaitRouteMiddleware.default_alert_handler = handle_bait_hit
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'examples.django_example.settings')
 
 # Get the WSGI application
-application = get_wsgi_application() 
+application = get_wsgi_application()
